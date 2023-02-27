@@ -54,7 +54,5 @@ class petugasController extends Controller
                 'tanggapan' => $request->tanggapan
             ]);
         }
-
     }
-
 }

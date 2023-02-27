@@ -34,7 +34,7 @@ Route::group(['middleware' => ['auth','role:admin']], function(){
     Route::get('/admin/register/{id}',[adminController::class,'regpros']);
 });
 
-Route::group(['middleware' => ['auth','role:petugas']], function(){
+Route::middleware(['auth','role:petugas|admin'])->group( function(){
     Route::get('/petugas',[petugasController::class,'index'])->name('petugas');
     Route::post('/petugas/tanggapan/proses',[petugasController::class,'tanggapanProses']);
     Route::post('/petugas/tanggapan/selesai',[petugasController::class,'tanggapanSelesai']);

@@ -1,5 +1,6 @@
 <template>
-   <v-app id="inspire">
+<v-theme-provider theme="dark" with-background class="pa-10">
+    <v-app id="inspire">
     <v-navigation-drawer v-model="drawer">
        <v-list density="compact">
       <v-list-subheader>{{user.nama}}</v-list-subheader>
@@ -49,6 +50,7 @@
       </v-container>
     </v-main>
   </v-app>
+</v-theme-provider>
 </template>
 
 <script>

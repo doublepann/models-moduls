@@ -1,20 +1,9 @@
 <template>
-  <v-app id="inspire">
-    <v-system-bar class="bg-blue">
-      <v-spacer></v-spacer>
-    <v-tooltip text="LOGOUT">
-        <template v-slot:activator="{ props }" >
-            <v-icon color="white" v-bind="props" @click="logout">mdi mdi-logout</v-icon>
-        </template>
-    </v-tooltip>
-
-    </v-system-bar>
+<v-theme-provider theme="dark" with-background class="pa-10">
+    <v-app id="inspire">
 
     <v-navigation-drawer v-model="drawer">
-      <v-sheet
-        color="grey-lighten-4"
-        class="pa-4"
-      >
+      <v-sheet color="grey-lighten-4" class="pa-4">
 
         <div>{{ user.nama }} ({{ user.level }})</div>
       </v-sheet>
@@ -41,17 +30,21 @@
                 </v-list-item>
                 </Link>
       </v-list>
+
     </v-navigation-drawer>
 
     <v-main>
-      <v-container
-        class="py-8 px-6"
-        fluid
-      >
+        <v-tooltip text="LOGOUT">
+            <template v-slot:activator="{ props }" >
+                <v-icon color="red" v-bind="props" @click="logout">mdi mdi-logout</v-icon>
+            </template>
+        </v-tooltip>
+      <v-container class="py-8 px-6" fluid>
         <slot/>
       </v-container>
     </v-main>
   </v-app>
+</v-theme-provider>
 </template>
 
 <script>
